@@ -101,6 +101,7 @@
     <Content Remove="wwwroot\assets\vendor\swiper\swiper-bundle.min.js" />
     <Content Remove="wwwroot\assets\vendor\swiper\swiper-bundle.min.js.map" />
     <Content Remove="wwwroot\assets\vendor\waypoints\noframework.waypoints.js" />
+    <Content Remove="wwwroot\files\Darron Werntz Resume IT.pdf" />
   </ItemGroup>
 
   <ItemGroup>
@@ -221,6 +222,7 @@
     <None Include="wwwroot\assets\vendor\swiper\swiper-bundle.min.js" />
     <None Include="wwwroot\assets\vendor\swiper\swiper-bundle.min.js.map" />
     <None Include="wwwroot\assets\vendor\waypoints\noframework.waypoints.js" />
+    <None Include="wwwroot\files\Darron Werntz Resume IT.pdf" />
   </ItemGroup>
 
   <ItemGroup>
