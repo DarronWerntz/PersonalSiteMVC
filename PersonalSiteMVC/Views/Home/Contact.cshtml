@@ -1,6 +1,9 @@
-﻿@{
+﻿@model PersonalSiteMVC.Models.ContactViewModel
+
+@{
     ViewData["Title"] = "Contact";
 }
+
 <main id="main">
 
     <!-- ======= Contact Section ======= -->
@@ -44,28 +47,33 @@
 
                 <div class="col-lg-8 mt-5 mt-lg-0">
 
-                    <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-                        <div class="row">
-                            <div class="col-md-6 form-group">
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-                            </div>
-                            <div class="col-md-6 form-group mt-3 mt-md-0">
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-                            </div>
+                    <form asp-action="Contact">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group mb-3">
+                            <input asp-for="Name" class="form-control" placeholder="Sender Name" aria-label="Your name">
+                            <span asp-validation-for="Name" class="text-danger"></span>
                         </div>
-                        <div class="form-group mt-3">
-                            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                        <div class="form-group mb-3">
+                            <input asp-for="Email" class="form-control" placeholder="Sender Email" aria-label="Your email address">
+                            <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
-                        <div class="form-group mt-3">
-                            <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                        <div class="form-group mb-3">
+                            <input asp-for="Subject" class="form-control" placeholder="Subject" aria-label="The message subject">
+                            <span asp-validation-for="Subject" class="text-danger"></span>
                         </div>
-                        <div class="my-3">
-                            <div class="loading">Loading</div>
-                            <div class="error-message"></div>
-                            <div class="sent-message">Your message has been sent. Thank you!</div>
+                        <div class="form-group mb-3">
+                            <textarea asp-for="Message"
+                                      rows="5"
+                                      class="form-control"
+                                      placeholder="Message body"
+                                      aria-label="The message body"></textarea>
+                            <span asp-validation-for="Message" class="text-danger"></span>
                         </div>
-                        <div class="text-center"><button type="submit">Send Message</button></div>
+                        <div class="form-group">
+                            <input type="submit" value="Send" class="btn btn-light" />
+                        </div>
                     </form>
+
 
                 </div>
 
@@ -75,3 +83,13 @@
     </section><!-- End Contact Section -->
 
 </main><!-- End #main -->
+
+@section Scripts {
+    <!-- jQuery Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
